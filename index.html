@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VitalFlow AI — Smart Automation for Healthcare Clinics Worldwide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF7F2;
+  --cream2:#F2EDE4;
+  --cream3:#E8E0D4;
+  --brown:#2C1810;
+  --brown2:#5C3D2E;
+  --brown3:#8B6355;
+  --teal:#0D6E6E;
+  --teal2:#1A9090;
+  --teal3:#E0F4F4;
+  --coral:#E85D3F;
+  --coral2:#FFF0ED;
+  --gold:#C4872A;
+  --gold2:#FFF8EE;
+  --violet:#6B4FBB;
+  --violet2:#EEE8FF;
+  --text:#2C1810;
+  --text2:#5C3D2E;
+  --text3:#8B6355;
+  --border:rgba(44,24,16,0.10);
+  --border2:rgba(44,24,16,0.06);
+  --r:14px;
+  --r2:24px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:400;line-height:1.2;color:var(--text)}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;background:rgba(250,247,242,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border2);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(44,24,16,0.08)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:34px;height:34px;background:var(--teal);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-mark svg{width:20px;height:20px}
+.logo-text{font-family:'Fraunces',serif;font-size:20px;font-weight:500;color:var(--brown);letter-spacing:-0.3px}
+.logo-text span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:14px;color:var(--text2);font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+/* FIX #4 — Nav CTA: white bg looks wrong on cream nav; use teal with white text */
+.nav-cta{
+  background:var(--teal);
+  color:#fff !important;
+  padding:10px 22px;
+  border-radius:50px;
+  font-size:14px;
+  font-weight:500;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 2px 8px rgba(13,110,110,0.25);
+}
+.nav-cta:hover{background:var(--teal2);transform:translateY(-1px);box-shadow:0 4px 16px rgba(13,110,110,0.3)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-hamburger span{width:22px;height:2px;background:var(--brown);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--border);padding:20px 5%;z-index:99;flex-direction:column;gap:18px}
+.mobile-menu a{font-size:15px;color:var(--text2)}
+.mobile-menu .nav-cta{text-align:center}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.5}
+.hero-blob.b1{width:500px;height:500px;background:var(--teal3);top:-100px;right:-100px}
+.hero-blob.b2{width:380px;height:380px;background:#FFF0ED;bottom:-80px;left:-80px}
+.hero-blob.b3{width:250px;height:250px;background:var(--gold2);top:40%;right:30%}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:50px;padding:6px 14px 6px 10px;font-size:13px;color:var(--text2);margin-bottom:28px;animation:fadeUp .6s ease both}
+.hero-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+.hero h1{font-size:clamp(38px,5vw,58px);line-height:1.1;margin-bottom:24px;animation:fadeUp .6s .1s ease both}
+.hero h1 em{font-style:italic;color:var(--teal)}
+.hero-sub{font-size:17px;color:var(--text2);line-height:1.7;margin-bottom:36px;max-width:480px;animation:fadeUp .6s .2s ease both}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
+.btn-primary{background:var(--teal);color:#fff;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:500;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--teal2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,110,110,0.25)}
+.btn-secondary{background:#fff;color:var(--text);padding:14px 28px;border-radius:50px;font-size:15px;border:1px solid var(--border);transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px)}
+.hero-trust{margin-top:40px;display:flex;align-items:center;gap:16px;animation:fadeUp .6s .4s ease both}
+.hero-trust-text{font-size:13px;color:var(--text3)}
+.hero-trust-clinics{display:flex;gap:6px;flex-wrap:wrap}
+.clinic-pill{background:#fff;border:1px solid var(--border);border-radius:50px;padding:4px 12px;font-size:12px;color:var(--text2)}
+.hero-visual{animation:fadeUp .6s .2s ease both}
+.hero-card{background:#fff;border-radius:var(--r2);border:1px solid var(--border);overflow:hidden;box-shadow:0 20px 60px rgba(44,24,16,0.10)}
+.hero-card-header{background:var(--teal);padding:16px 20px;display:flex;align-items:center;gap:10px}
+.hero-card-header-dots{display:flex;gap:6px}
+.hero-card-header-dots span{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.4)}
+.hero-card-title{font-size:13px;color:rgba(255,255,255,0.9);font-family:'DM Sans',sans-serif;margin:0}
+.hero-card-body{padding:20px}
+.hcb-row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:var(--r);margin-bottom:8px;background:var(--cream)}
+.hcb-row:last-child{margin-bottom:0}
+.hcb-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+.hcb-icon.green{background:#E0F4F4;color:var(--teal)}
+.hcb-icon.orange{background:var(--coral2);color:var(--coral)}
+.hcb-icon.gold{background:var(--gold2);color:var(--gold)}
+.hcb-icon.violet{background:var(--violet2);color:var(--violet)}
+.hcb-label{font-size:13px;color:var(--text2);flex:1}
+.hcb-val{font-size:13px;font-weight:500;color:var(--text)}
+.hcb-badge{font-size:11px;background:#E0F4F4;color:var(--teal);padding:3px 8px;border-radius:50px}
+.hero-card-stat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;padding:16px;background:var(--cream2);border-radius:var(--r)}
+.stat-item{text-align:center}
+.stat-num{font-family:'Fraunces',serif;font-size:26px;color:var(--teal)}
+.stat-lbl{font-size:11px;color:var(--text3);margin-top:2px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SECTION COMMONS ── */
+section{padding:88px 5%}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-tag{display:inline-block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:14px;font-family:'DM Sans',sans-serif}
+.section-title{font-size:clamp(30px,4vw,44px);margin-bottom:16px;max-width:640px}
+.section-sub{font-size:16px;color:var(--text2);max-width:560px;line-height:1.75;margin-bottom:48px}
+
+/* ── PAIN ── */
+.pain{background:var(--brown);color:#fff}
+.pain h2{color:#fff}
+.pain .section-tag{color:#C4DED8}
+.pain .section-sub{color:rgba(255,255,255,0.6)}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.pain-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r2);padding:24px}
+.pain-card-icon{font-size:24px;margin-bottom:14px}
+.pain-card h3{font-size:17px;color:#fff;margin-bottom:8px;font-weight:400}
+.pain-card p{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7}
+.pain-stat{margin-top:48px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r2);padding:28px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.pain-stat-item{text-align:center}
+.pain-stat-num{font-family:'Fraunces',serif;font-size:38px;color:var(--teal2)}
+.pain-stat-label{font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px}
+
+/* ── SERVICES ── */
+.services{background:var(--cream)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.service-card{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:28px;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.service-card.voice-card::before{background:linear-gradient(90deg,var(--violet),var(--teal))}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(44,24,16,0.10)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:48px;height:48px;border-radius:14px;background:var(--teal3);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.service-icon.violet-icon{background:var(--violet2)}
+.service-card h3{font-size:19px;margin-bottom:10px;font-weight:400}
+.service-card p{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:16px}
+.service-card ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.service-card ul li{font-size:13px;color:var(--text2);display:flex;align-items:flex-start;gap:8px}
+.service-card ul li::before{content:'✓';color:var(--teal);font-weight:600;flex-shrink:0;margin-top:1px}
+.service-new-badge{display:inline-block;background:var(--violet);color:#fff;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:50px;margin-bottom:10px;font-family:'DM Sans',sans-serif}
+
+/* ── NICHES ── */
+.niches{background:var(--cream2)}
+.niches-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.niche-card{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:24px 20px;text-align:center;transition:all .25s;cursor:default}
+.niche-card:hover{border-color:var(--teal);background:var(--teal3);transform:translateY(-3px)}
+.niche-card:hover .niche-icon{background:var(--teal);color:#fff}
+.niche-icon{width:52px;height:52px;border-radius:50%;background:var(--cream2);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 14px}
+.niche-card h3{font-size:15px;font-weight:500;font-family:'DM Sans',sans-serif;color:var(--text);margin-bottom:4px}
+.niche-card p{font-size:12px;color:var(--text3)}
+
+/* ── GLOBAL REACH ── */
+.global{background:var(--brown);color:#fff;padding:88px 5%}
+.global .section-tag{color:#C4DED8}
+.global h2{color:#fff}
+.global .section-sub{color:rgba(255,255,255,0.6)}
+.globe-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:40px}
+.globe-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r2);padding:22px;transition:background .2s}
+.globe-card:hover{background:rgba(255,255,255,0.10)}
+.globe-flag{font-size:28px;margin-bottom:12px}
+.globe-region{font-size:16px;color:#fff;font-weight:500;margin-bottom:4px}
+.globe-detail{font-size:13px;color:rgba(255,255,255,0.5)}
+.currency-note{margin-top:36px;background:rgba(13,110,110,0.25);border:1px solid rgba(26,144,144,0.3);border-radius:var(--r2);padding:20px 28px;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.7}
+.currency-note strong{color:#fff}
+
+/* ── HOW IT WORKS ── */
+.howitworks{background:var(--cream)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;position:relative}
+.step{text-align:center;padding:0 12px}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--teal);color:#fff;font-family:'Fraunces',serif;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative}
+.step-num::after{content:'';position:absolute;width:70px;height:70px;border-radius:50%;border:1px dashed rgba(13,110,110,0.3);top:-7px;left:-7px}
+.step h3{font-size:17px;margin-bottom:8px;font-weight:400}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+
+/* ── DEMO ── */
+.demo{background:var(--teal);color:#fff}
+.demo .section-tag{color:rgba(255,255,255,0.6)}
+.demo h2{color:#fff}
+.demo .section-sub{color:rgba(255,255,255,0.7)}
+.demo-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.demo-phone{perspective:800px}
+.demo-phone-frame{background:#fff;border-radius:24px;padding:20px;box-shadow:0 40px 80px rgba(0,0,0,0.3);transform:rotateY(-6deg) rotateX(3deg);transition:transform .4s}
+.demo-phone-frame:hover{transform:rotateY(0) rotateX(0)}
+.demo-chat{display:flex;flex-direction:column;gap:12px}
+.chat-msg{max-width:85%;padding:12px 16px;border-radius:18px;font-size:13px;line-height:1.6}
+.chat-msg.clinic{background:var(--cream);color:var(--text);border-bottom-left-radius:4px;align-self:flex-start}
+.chat-msg.patient{background:var(--teal);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.chat-msg.system{background:var(--cream2);color:var(--text2);font-size:12px;text-align:center;align-self:center;border-radius:10px;padding:8px 14px}
+.chat-label{font-size:10px;color:var(--text3);margin-bottom:4px;padding:0 4px}
+.chat-label.right{text-align:right}
+.demo-features{display:flex;flex-direction:column;gap:20px}
+.demo-feat{display:flex;gap:16px;align-items:flex-start}
+.demo-feat-icon{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.demo-feat h3{font-size:16px;color:#fff;font-weight:400;margin-bottom:6px}
+.demo-feat p{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65}
+.demo-cta-row{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--teal);padding:13px 26px;border-radius:50px;font-size:14px;font-weight:500;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-white:hover{background:var(--cream);transform:translateY(-2px)}
+.btn-ghost-white{background:transparent;color:#fff;padding:13px 26px;border-radius:50px;font-size:14px;border:1px solid rgba(255,255,255,0.3);transition:all .2s}
+.btn-ghost-white:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px)}
+
+/* ── RESULTS ── */
+.results{background:var(--cream2)}
+.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.result-card{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:28px;position:relative;overflow:hidden}
+.result-card::after{content:'"';position:absolute;bottom:-20px;right:20px;font-family:'Fraunces',serif;font-size:120px;color:var(--cream2);line-height:1}
+.result-num{font-family:'Fraunces',serif;font-size:44px;color:var(--teal);margin-bottom:4px}
+.result-unit{font-size:13px;color:var(--text3);margin-bottom:12px}
+.result-desc{font-size:14px;color:var(--text2);line-height:1.65;position:relative;z-index:1}
+
+/* ── PRICING — GLOBAL ── */
+.pricing{background:var(--cream)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;align-items:start}
+.price-card{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:32px;transition:transform .25s}
+.price-card:hover{transform:translateY(-4px)}
+.price-card.featured{border-color:var(--teal);box-shadow:0 20px 60px rgba(13,110,110,0.12)}
+.price-badge{font-size:11px;letter-spacing:1px;text-transform:uppercase;background:var(--teal);color:#fff;padding:4px 12px;border-radius:50px;display:inline-block;margin-bottom:16px;font-family:'DM Sans',sans-serif}
+.price-card h3{font-size:20px;margin-bottom:8px;font-weight:400}
+/* Global dual-currency display */
+.price-main{font-family:'Fraunces',serif;font-size:38px;color:var(--teal);line-height:1;margin-bottom:2px}
+.price-usd{font-size:15px;color:var(--teal2);font-family:'Fraunces',serif;margin-bottom:4px;font-weight:400}
+.price-note{font-size:13px;color:var(--text3);margin-bottom:24px}
+.price-card ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.price-card ul li{font-size:14px;color:var(--text2);display:flex;align-items:flex-start;gap:10px}
+.price-card ul li::before{content:'✓';color:var(--teal);font-weight:600;flex-shrink:0}
+.price-card ul li.cross::before{content:'✗';color:var(--cream3)}
+.price-card ul li.cross{color:var(--cream3)}
+.btn-price{width:100%;text-align:center;padding:13px;border-radius:50px;font-size:14px;font-weight:500;transition:all .2s;display:block;cursor:pointer}
+.btn-price.filled{background:var(--teal);color:#fff}
+.btn-price.filled:hover{background:var(--teal2)}
+.btn-price.outline{border:1px solid var(--border);color:var(--text2)}
+.btn-price.outline:hover{border-color:var(--teal);color:var(--teal)}
+.currency-toggle{display:flex;align-items:center;gap:12px;margin-bottom:36px;flex-wrap:wrap}
+.currency-toggle span{font-size:13px;color:var(--text3)}
+.ctoggle{display:flex;background:var(--cream2);border:1px solid var(--border);border-radius:50px;padding:4px;gap:4px}
+.ctoggle button{border:none;background:transparent;padding:6px 16px;border-radius:50px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--text2);transition:all .2s}
+.ctoggle button.active{background:#fff;color:var(--teal);font-weight:500;box-shadow:0 1px 4px rgba(44,24,16,0.1)}
+
+/* ── PROCESS ── */
+.process{background:var(--cream2)}
+.process-steps{display:flex;flex-direction:column;gap:0}
+.process-step{display:grid;grid-template-columns:60px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--border);position:relative}
+.process-step:last-child{border-bottom:none}
+.ps-num{font-family:'Fraunces',serif;font-size:36px;color:var(--cream3);font-style:italic;line-height:1;padding-top:4px}
+.ps-content h3{font-size:19px;margin-bottom:8px;font-weight:400}
+.ps-content p{font-size:15px;color:var(--text2);line-height:1.75}
+.ps-tag{display:inline-block;background:var(--teal3);color:var(--teal);font-size:12px;padding:4px 12px;border-radius:50px;margin-bottom:10px}
+
+/* ── FAQ ── */
+.faq{background:var(--cream)}
+.faq-list{display:flex;flex-direction:column;gap:0;max-width:720px}
+.faq-item{border-bottom:1px solid var(--border);padding:22px 0}
+.faq-q{font-size:16px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none;color:var(--text)}
+.faq-arrow{width:28px;height:28px;border-radius:50%;background:var(--cream2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s,background .2s;font-size:16px;color:var(--text2)}
+.faq-item.open .faq-arrow{transform:rotate(45deg);background:var(--teal);color:#fff}
+.faq-a{font-size:15px;color:var(--text2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;padding-top:0}
+.faq-item.open .faq-a{max-height:300px;padding-top:14px}
+
+/* ── CTA BANNER ── */
+.cta-banner{background:var(--cream2);padding:88px 5%}
+.cta-inner{max-width:700px;margin:0 auto;text-align:center}
+.cta-inner h2{font-size:clamp(32px,4vw,48px);margin-bottom:16px}
+.cta-inner h2 em{color:var(--teal);font-style:italic}
+.cta-inner p{font-size:17px;color:var(--text2);margin-bottom:36px;line-height:1.75}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-trust{margin-top:28px;font-size:13px;color:var(--text3);display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* ── FOOTER ── */
+footer{background:var(--brown);padding:56px 5% 32px;color:rgba(255,255,255,0.55)}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-logo .logo-text{color:#fff}
+.footer-logo .logo-text span{color:var(--teal2)}
+.footer-desc{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.75;margin-top:12px;max-width:280px}
+.footer-col h4{font-size:13px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;font-family:'DM Sans',sans-serif;font-weight:500}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,0.55);margin-bottom:10px;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-email{font-size:14px;color:rgba(255,255,255,0.55)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:13px;color:rgba(255,255,255,0.3)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner,.demo-inner,.footer-top{grid-template-columns:1fr}
+  .hero-visual{order:-1}
+  .hero h1{font-size:36px}
+  .demo-phone-frame{transform:none}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .hero{padding:90px 5% 60px}
+  .hero-actions{flex-direction:column}
+  .hero-trust{flex-direction:column;align-items:flex-start}
+  .footer-top{grid-template-columns:1fr}
+  .pain-stat{flex-direction:column;text-align:center}
+  .cta-row{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <span class="logo-text">VitalFlow<span> AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#demo">Demo</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://calendly.com/vitalflowai" target="_blank" class="nav-cta">Book Free Audit →</a>
+    </div>
+    <div class="nav-hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#demo" onclick="toggleMenu()">Demo</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="https://calendly.com/vitalflowai" target="_blank" class="nav-cta">Book Free Audit →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-blob b1"></div>
+    <div class="hero-blob b2"></div>
+    <div class="hero-blob b3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        AI-Powered · Built for Healthcare · AI Automation Systems for Service Businesses
+      </div>
+      <h1>Your clinic deserves to run <em>without</em> the chaos</h1>
+      <p class="hero-sub">VitalFlow AI builds intelligent automation systems that eliminate no-shows, follow up with patients automatically, and recover lost revenue — so you focus on care, not admin.</p>
+      <div class="hero-actions">
+        <a href="https://calendly.com/vitalflowai" target="_blank" class="btn-primary">Get a Free Clinic Audit →</a>
+        <a href="#demo" class="btn-secondary">▶️ See it in action</a>
+      </div>
+      <div class="hero-trust">
+        <span class="hero-trust-text">Built for:</span>
+        <div class="hero-trust-clinics">
+          <span class="clinic-pill">🦷 Dental</span>
+          <span class="clinic-pill">🏃 Physio</span>
+          <span class="clinic-pill">✨ Skin</span>
+          <span class="clinic-pill">👁️ Eye</span>
+          <span class="clinic-pill">🦴 Ortho</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="hero-card-header-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <p class="hero-card-title">VitalFlow Dashboard — Live</p>
+        </div>
+        <div class="hero-card-body">
+          <div class="hcb-row">
+            <div class="hcb-icon green">✓</div>
+            <span class="hcb-label">Reminders sent today</span>
+            <span class="hcb-val">24</span>
+            <span class="hcb-badge">+12%</span>
+          </div>
+          <div class="hcb-row">
+            <div class="hcb-icon orange">↩</div>
+            <span class="hcb-label">No-shows rescued</span>
+            <span class="hcb-val">8</span>
+            <span class="hcb-badge">This week</span>
+          </div>
+          <div class="hcb-row">
+            <div class="hcb-icon gold">⭐</div>
+            <span class="hcb-label">Reviews collected</span>
+            <span class="hcb-val">5</span>
+            <span class="hcb-badge">Auto</span>
+          </div>
+          <div class="hcb-row">
+            <div class="hcb-icon violet">🎙️</div>
+            <span class="hcb-label">Voice agent calls handled</span>
+            <span class="hcb-val">13</span>
+            <span class="hcb-badge">24/7</span>
+          </div>
+          <div class="hero-card-stat">
+            <div class="stat-item">
+              <div class="stat-num">$390</div>
+              <div class="stat-lbl">Revenue recovered this month</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">11%</div>
+              <div class="stat-lbl">No-show rate (was 28%)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="section-inner">
+    <span class="section-tag">The Problem</span>
+    <h2 class="section-title">Every clinic is losing money it doesn't know about</h2>
+    <p class="section-sub">Manual processes, forgotten follow-ups, and missed appointments silently drain revenue from healthcare practices every single week — whether you're in Mumbai, Melbourne, or Miami.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-card-icon">📵</div>
+        <h3>No-shows pile up</h3>
+        <p>Patients forget. Life happens. Without automated reminders, 20–30% of appointments vanish — taking your revenue with them.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card-icon">📋</div>
+        <h3>Staff drown in admin</h3>
+        <p>Receptionists spend hours every day manually calling patients, chasing documents, and doing tasks that should never need a human.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card-icon">😶</div>
+        <h3>Patients go silent</h3>
+        <p>40% of patients who finish treatment never return — not because they're unhappy, but because no one reached back out at the right time.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card-icon">📞</div>
+        <h3>Calls go unanswered</h3>
+        <p>After-hours patient calls and enquiries go to voicemail and are forgotten — costing you bookings every single night and weekend.</p>
+      </div>
+    </div>
+    <div class="pain-stat">
+      <div class="pain-stat-item">
+        <div class="pain-stat-num">20–30%</div>
+        <div class="pain-stat-label">Average no-show rate without automation</div>
+      </div>
+      <div class="pain-stat-item">
+        <div class="pain-stat-num">8 hrs</div>
+        <div class="pain-stat-label">Staff time lost weekly to manual reminders</div>
+      </div>
+      <div class="pain-stat-item">
+        <div class="pain-stat-num">40%</div>
+        <div class="pain-stat-label">Patients who never return after treatment</div>
+      </div>
+      <div class="pain-stat-item">
+        <div class="pain-stat-num">60%</div>
+        <div class="pain-stat-label" style="font-size:13px;color:rgba(255,255,255,0.5)">Reduction possible with automation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <span class="section-tag">What We Build</span>
+    <h2 class="section-title">Five systems. One complete patient journey.</h2>
+    <p class="section-sub">Every automation we build targets a specific revenue leak — and delivers measurable results within 30 days.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">💬</div>
+        <h3>Smart Reminder System</h3>
+        <p>Automated WhatsApp and SMS reminders sent exactly 24 hours and 2 hours before every appointment. Patients confirm or reschedule with one tap.</p>
+        <ul>
+          <li>Personalised per patient and treatment type</li>
+          <li>Two-way response tracking in Airtable</li>
+          <li>Zero manual calls for your receptionist</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔄</div>
+        <h3>No-Show Rescue Engine</h3>
+        <p>When a patient cancels or ghosts, an AI-crafted rebooking message goes out within 30 minutes — with 3 available slots to choose from.</p>
+        <ul>
+          <li>Recovers 40–60% of cancellations automatically</li>
+          <li>Warm, human-sounding messages via AI</li>
+          <li>Tracks recovery rate in your weekly dashboard</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔔</div>
+        <h3>Patient Recall Automation</h3>
+        <p>90 days after a patient's last visit, they receive a personalised message inviting them back — before they book with a competitor.</p>
+        <ul>
+          <li>Works 24/7 without any manual input</li>
+          <li>Targets lapsed patients you've forgotten about</li>
+          <li>Links directly to your booking system</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⭐</div>
+        <h3>Google Review Automation</h3>
+        <p>Post-treatment review requests sent at the perfect moment — when patient satisfaction is highest and the experience is fresh.</p>
+        <ul>
+          <li>Most clinics see 3× more reviews in month one</li>
+          <li>Timed for day-7 follow-up message</li>
+          <li>Direct link to your Google Business profile</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Weekly Performance Dashboard</h3>
+        <p>Every Monday morning, you receive an automated report showing exactly what the system did — and what revenue it recovered — the previous week.</p>
+        <ul>
+          <li>No-show rate, confirmation rate, reviews, recalls</li>
+          <li>Sent automatically via email every Monday</li>
+          <li>Built in Airtable — no new software to learn</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>WhatsApp AI Chatbot</h3>
+        <p>A 24/7 AI assistant that handles new patient enquiries from your clinic's WhatsApp — qualifying leads, answering FAQs, and booking appointments automatically.</p>
+        <ul>
+          <li>Trained on your clinic's services and pricing</li>
+          <li>Hands off to staff when human touch is needed</li>
+          <li>Captures leads even at 2am</li>
+        </ul>
+      </div>
+      <!-- NEW: AI Voice Agent -->
+      <div class="service-card voice-card">
+        <div class="service-new-badge">New</div>
+        <div class="service-icon violet-icon">🎙️</div>
+        <h3>AI Voice Agent</h3>
+        <p>A conversational AI that answers your clinic's phone calls 24/7 — booking appointments, handling FAQs, and routing urgent cases to staff — in your clinic's voice and language.</p>
+        <ul>
+          <li>Handles inbound calls after-hours & on weekends</li>
+          <li>Books directly into your calendar — no hold time</li>
+          <li>Speaks naturally in English, Hindi, Arabic & more</li>
+          <li>Escalates emergencies to on-call staff instantly</li>
+          <li>Call summaries logged automatically to your CRM</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NICHES -->
+<section class="niches" id="niches">
+  <div class="section-inner">
+    <span class="section-tag">Who We Serve</span>
+    <h2 class="section-title">Built specifically for healthcare clinics</h2>
+    <p class="section-sub">Every workflow is adapted to your clinic's specific patient journey, terminology, and scheduling patterns.</p>
+    <div class="niches-grid">
+      <div class="niche-card">
+        <div class="niche-icon">🦷</div>
+        <h3>Dental Clinics</h3>
+        <p>Checkup recalls, treatment follow-ups</p>
+      </div>
+      <div class="niche-card">
+        <div class="niche-icon">🏃</div>
+        <h3>Physiotherapy</h3>
+        <p>Session reminders, progress check-ins</p>
+      </div>
+      <div class="niche-card">
+        <div class="niche-icon">✨</div>
+        <h3>Skin Clinics</h3>
+        <p>Treatment cycles, seasonal campaigns</p>
+      </div>
+      <div class="niche-card">
+        <div class="niche-icon">👁️</div>
+        <h3>Eye Clinics</h3>
+        <p>Annual checkup recalls, prescription alerts</p>
+      </div>
+      <div class="niche-card">
+        <div class="niche-icon">🦴</div>
+        <h3>Orthopedic</h3>
+        <p>Rehab follow-ups, appointment scheduling</p>
+      </div>
+      <div class="niche-card">
+        <div class="niche-icon">🏥</div>
+        <h3>General Practice</h3>
+        <p>Patient retention, preventive care recall</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="howitworks" id="process">
+  <div class="section-inner">
+    <span class="section-tag">How It Works</span>
+    <h2 class="section-title">From audit to live in 7 days</h2>
+    <p class="section-sub">No lengthy onboarding. No disruption to your clinic. We fit around your schedule — wherever you are in the world.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Free clinic audit</h3>
+        <p>We spend 15 minutes on a video call understanding your setup, no-show rate, and biggest revenue leaks.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Custom system design</h3>
+        <p>We map out exactly which automations to build, tailored to your clinic type, size, region, and existing tools.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Build &amp; test</h3>
+        <p>We build your complete automation system, connected to Airtable and your messaging channels — and test every workflow thoroughly.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Go live in 7 days</h3>
+        <p>Your system launches. We monitor the first 2 weeks closely before handing you the dashboard. Timezone-friendly handover guaranteed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo" id="demo">
+  <div class="section-inner">
+    <div class="demo-inner">
+      <div>
+        <span class="section-tag">Live Demo</span>
+        <h2 class="section-title" style="color:#fff;max-width:500px">See exactly what your patients experience</h2>
+        <p class="section-sub">This is the VitalFlow Smart Clinic OS in action — the same WhatsApp flow a patient receives automatically when they have an upcoming appointment.</p>
+        <div class="demo-features">
+          <div class="demo-feat">
+            <div class="demo-feat-icon">⏰</div>
+            <div>
+              <h3>Sent 24 hours before</h3>
+              <p>Patient receives a warm, personalised reminder. No staff involvement. They confirm with one tap.</p>
+            </div>
+          </div>
+          <div class="demo-feat">
+            <div class="demo-feat-icon">↩️</div>
+            <div>
+              <h3>AI rescues cancellations</h3>
+              <p>If they cancel, our system sends a gentle rebooking message within 30 minutes with 3 available slots.</p>
+            </div>
+          </div>
+          <div class="demo-feat">
+            <div class="demo-feat-icon">🎙️</div>
+            <div>
+              <h3>AI Voice answers after hours</h3>
+              <p>Missed a call at 9pm? The AI Voice Agent picks up, books the appointment, and logs it to your dashboard.</p>
+            </div>
+          </div>
+          <div class="demo-feat">
+            <div class="demo-feat-icon">📈</div>
+            <div>
+              <h3>You see the results weekly</h3>
+              <p>Every Monday: how many confirmed, how many rescued, how much revenue recovered. Automatically emailed to you.</p>
+            </div>
+          </div>
+        </div>
+        <div class="demo-cta-row">
+          <a href="https://calendly.com/vitalflowai" target="_blank" class="btn-white">Book a live walkthrough →</a>
+          <a href="#pricing" class="btn-ghost-white">See pricing</a>
+        </div>
+      </div>
+      <div class="demo-phone">
+        <div class="demo-phone-frame">
+          <div style="background:#128C7E;padding:14px 16px;border-radius:12px 12px 0 0;display:flex;align-items:center;gap:10px;margin:-20px -20px 16px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;">🦷</div>
+            <div>
+              <div style="font-size:14px;font-weight:500;color:#fff;">Smile Dental Clinic</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.7);">WhatsApp Business · Online</div>
+            </div>
+          </div>
+          <div class="demo-chat">
+            <div class="chat-msg system">Thursday, 9:00 AM — Automated</div>
+            <div>
+              <div class="chat-label">VitalFlow AI</div>
+              <div class="chat-msg clinic">Hi Priya! 👋 This is a reminder from <b>Smile Dental Clinic</b>.<br><br>Your appointment for a <b>dental cleaning</b> with Dr. Sharma is tomorrow, <b>Friday at 11:00 AM</b>.<br><br>Please reply:<br>✅ CONFIRM — to confirm your slot<br>❌ CANCEL — if you can't make it<br><br>📍 123 MG Road · 📞 98765 43210</div>
+            </div>
+            <div>
+              <div class="chat-label right">Priya</div>
+              <div class="chat-msg patient">✅ CONFIRM</div>
+            </div>
+            <div class="chat-msg system">Appointment confirmed · Dashboard updated automatically</div>
+            <div>
+              <div class="chat-label">VitalFlow AI · 2 hours before</div>
+              <div class="chat-msg clinic">Hi Priya! Just a quick reminder — your appointment at Smile Dental is in <b>2 hours</b> (11:00 AM today). 🦷<br><br>See you soon!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <div class="section-inner">
+    <span class="section-tag">Measured Outcomes</span>
+    <h2 class="section-title">What clinics see in the first 30 days</h2>
+    <p class="section-sub">These outcomes are tracked across our client base globally — from single-doctor clinics to multi-location practices.</p>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-num">60%</div>
+        <div class="result-unit">reduction in no-show rate</div>
+        <div class="result-desc">From an average 28% down to under 12% — recovered through automated reminders and AI-powered rebooking messages.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">$500+</div>
+        <div class="result-unit">average revenue recovered monthly</div>
+        <div class="result-desc">Most clinics break even on setup cost within 45 days. Equivalent to ₹40K+ for Indian clinics at typical appointment rates.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">8 hrs</div>
+        <div class="result-unit">staff time saved every week</div>
+        <div class="result-desc">Receptionists stop making manual reminder calls and start focusing on in-clinic patient experience instead.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">3.2×</div>
+        <div class="result-unit">more Google reviews collected</div>
+        <div class="result-desc">Automated post-treatment review requests, sent at exactly the right moment, consistently generate 3× more reviews in month one.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="results"><div class="section-inner">
+<span class="section-tag">Featured Project</span>
+<h2 class="section-title">Patient Reminder Automation System</h2>
+<p class="section-sub">Industry: Healthcare Clinics • Problem: Missed appointments • Solution: Automated reminders and follow-ups • Outcome: Better patient engagement and reduced manual work.</p>
+</div></section>
+
+<!-- PRICING — GLOBAL -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <span class="section-tag">Custom Pricing</span>
+    <h2 class="section-title">One investment. Ongoing results.</h2>
+    <p class="section-sub">No hidden fees. No monthly platform costs. A fixed setup fee and an optional maintenance plan — invoiced in your local currency.</p>
+    <div class="currency-toggle">
+      <span>Show prices in:</span>
+      <div class="ctoggle">
+        <button class="active" onclick="setCurrency('usd',this)">$ USD</button>
+        <button onclick="setCurrency('inr',this)">₹ INR</button>
+        <button onclick="setCurrency('gbp',this)">£ GBP</button>
+        <button onclick="setCurrency('aud',this)">A$ AUD</button>
+        <button onclick="setCurrency('aed',this)">AED</button>
+      </div>
+    </div>
+    <div class="pricing-grid">
+      <!-- STARTER -->
+      <div class="price-card">
+        <h3>Starter</h3>
+        <div class="price-main" id="p-starter">$299</div>
+        <div class="price-usd" id="p-starter-sub" style="color:var(--text3);font-size:13px;font-family:'DM Sans',sans-serif;">≈ ₹24,999 · £235 · A$455 · AED 1,098</div>
+        <div class="price-note">one-time setup</div>
+        <ul>
+          <li>WhatsApp reminder system (24h + 2h)</li>
+          <li>Basic no-show detection</li>
+          <li>Airtable patient dashboard</li>
+          <li>1 month of support included</li>
+          <li class="cross">No-show rescue engine</li>
+          <li class="cross">Recall automation</li>
+          <li class="cross">Review collection</li>
+          <li class="cross">AI Voice Agent</li>
+        </ul>
+        <a href="https://calendly.com/vitalflowai" target="_blank" class="btn-price outline">Book a call</a>
+      </div>
+      <!-- SMART CLINIC OS -->
+      <div class="price-card featured">
+        <div class="price-badge">Most Popular</div>
+        <h3>Smart Clinic OS</h3>
+        <div class="price-main" id="p-mid">$599</div>
+        <div class="price-usd" id="p-mid-sub" style="color:var(--teal2);font-size:13px;font-family:'DM Sans',sans-serif;">≈ ₹49,999 · £470 · A$912 · AED 2,200</div>
+        <div class="price-note">one-time setup · 3× ROI guarantee</div>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>No-show rescue engine (AI-powered)</li>
+          <li>3-month patient recall automation</li>
+          <li>Google Review collection system</li>
+          <li>Weekly performance report emails</li>
+          <li>2 months of support included</li>
+          <li class="cross">AI Voice Agent</li>
+        </ul>
+        <a href="https://calendly.com/vitalflowai" target="_blank" class="btn-price filled">Get started →</a>
+      </div>
+      <!-- ENTERPRISE -->
+      <div class="price-card">
+        <h3>Enterprise</h3>
+        <div class="price-main" id="p-ent">$1,199</div>
+        <div class="price-usd" id="p-ent-sub" style="color:var(--text3);font-size:13px;font-family:'DM Sans',sans-serif;">≈ ₹99,999 · £940 · A$1,824 · AED 4,404</div>
+        <div class="price-note">one-time setup</div>
+        <ul>
+          <li>Everything in Smart Clinic OS</li>
+          <li>Multi-location or multi-doctor setup</li>
+          <li>WhatsApp AI Chatbot (24/7 lead capture)</li>
+          <li>AI Voice Agent — inbound calls 24/7</li>
+          <li>Social media lead automation</li>
+          <li>Custom integrations on request</li>
+          <li>6 months of support included</li>
+        </ul>
+        <a href="https://calendly.com/vitalflowai" target="_blank" class="btn-price outline">Book a call</a>
+      </div>
+    </div>
+    <div style="background:var(--teal3);border:1px solid rgba(13,110,110,0.15);border-radius:var(--r2);padding:24px 28px;margin-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <div style="font-size:15px;font-weight:500;color:var(--teal);margin-bottom:4px;">Add monthly maintenance — from $95/mo <span style="font-size:13px;color:var(--text2);font-weight:400">(≈ ₹8,000 · £75 · A$145)</span></div>
+        <div style="font-size:14px;color:var(--text2);">System monitoring, workflow updates, performance reports, and priority support. Invoiced in your local currency. Most clients add this from month 2.</div>
+      </div>
+      <a href="https://calendly.com/vitalflowai" target="_blank" class="btn-primary" style="white-space:nowrap;">Ask about retainers</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS DETAIL -->
+<section class="process">
+  <div class="section-inner">
+    <span class="section-tag">Our Process</span>
+    <h2 class="section-title">What happens after you book a call</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="ps-num">01</div>
+        <div class="ps-content">
+          <div class="ps-tag">Day 0 — Free, 15–30 minutes</div>
+          <h3>Revenue Leak Audit</h3>
+          <p>We meet on a video call (any timezone). We look at your current appointment volume, no-show rate, and reminder process. You walk away with a clear picture of what's leaking revenue — even if you don't work with us.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">02</div>
+        <div class="ps-content">
+          <div class="ps-tag">Day 1 — After confirmation</div>
+          <h3>Custom system blueprint</h3>
+          <p>We send you a detailed document showing every automation we'll build, what it does, and what outcome to expect. You approve it before we write a single line of workflow code.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">03</div>
+        <div class="ps-content">
+          <div class="ps-tag">Days 2–6</div>
+          <h3>Build, configure, and test</h3>
+          <p>We build your system, connect it to WhatsApp Business API, Airtable, and your phone system, configure all AI prompts in your clinic's language and tone, and run full end-to-end tests before going near a real patient.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">04</div>
+        <div class="ps-content">
+          <div class="ps-tag">Day 7 — Live</div>
+          <h3>Go live and handover</h3>
+          <p>Your system goes live. We walk your team through the Airtable dashboard on a video call (scheduled for your timezone), answer every question, and monitor the first two weeks — at no extra charge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="process"><div class="section-inner">
+<span class="section-tag">Founder</span>
+<h2 class="section-title">Meet The Founder</h2>
+<p class="section-sub">Hi, I'm Chinteshwar. I build automation systems that help businesses eliminate repetitive work, improve efficiency, and scale operations. After building healthcare software and AI-powered workflows, I started VitalFlow AI to help service businesses save time and increase revenue through automation.</p>
+<a href="https://calendly.com/vitalflowai" target="_blank" class="btn-primary">Book Free Audit →</a>
+</div></section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-inner">
+    <span class="section-tag">FAQ</span>
+    <h2 class="section-title">Questions we get asked a lot</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do we need any special software or subscriptions?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">No new software to install on your end. We use WhatsApp Business API, Airtable (free tier is enough for most clinics), and n8n running on our server. You don't pay extra platform subscriptions — everything is included in your setup fee.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Will this work with our existing booking system?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">Yes, in almost all cases. We connect to most common booking and practice management systems, or we can use a simple Airtable form as the data entry point if needed. We'll confirm compatibility during the free audit call before you commit to anything.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How long does setup really take?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">7 working days from the time you confirm and pay the deposit. That's the typical timeline for the Smart Clinic OS. Enterprise setups with multiple locations or custom integrations may take 10–14 days. We've never missed a go-live deadline.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What languages does the AI Voice Agent support?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">The AI Voice Agent currently supports English, Hindi, Arabic, and can be configured for other languages on request. It speaks in a natural, conversational tone — trained specifically on healthcare clinic call scenarios. It can handle mixed-language conversations (e.g. Hinglish) and will always escalate to a human staff member when the situation requires it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What's the 3× ROI guarantee?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">If your Smart Clinic OS doesn't recover at least 3× the setup cost in revenue within 60 days of going live, we refund the difference. We measure this using the no-show data and recovery metrics tracked automatically in your Airtable dashboard. We stand behind the numbers because they're tracked live.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What currency will I be invoiced in?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">We invoice in your local currency — INR, USD, GBP, AUD, AED, or any major currency. Prices displayed on this site are USD equivalents. The final invoice will be in your local currency at the current exchange rate, with no additional conversion fees added by us.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What happens to our patient data?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">All patient data remains in your Airtable base — which you own and control. We don't store patient information on any third-party servers. We can work within HIPAA-aware, GDPR-compliant, and local data protection frameworks depending on your country. We're happy to sign an NDA or data processing agreement.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do we need technical knowledge to use this?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">None at all. Your receptionist sees a simple Airtable view — add a new appointment row, the automations handle everything else. You get a weekly email report. That's it. No dashboards to check, no workflows to manage. It runs silently in the background.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="cta-banner"><div class="cta-inner">
+<h2>Free Automation Audit</h2>
+<p>Discover bottlenecks, revenue leaks, time-consuming tasks, and automation opportunities.</p>
+<a href="https://calendly.com/vitalflowai" target="_blank" class="btn-primary">Claim My Free Audit →</a>
+</div></section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <h2>Find out how much your clinic is <em>leaving behind</em></h2>
+    <p>Book a free 15-minute Revenue Leak Audit. We'll show you exactly what's costing you, what automation would recover, and what the numbers look like — before you spend a single penny.</p>
+    <div class="cta-row">
+      <a href="https://calendly.com/vitalflowai" target="_blank" class="btn-primary" style="font-size:16px;padding:16px 32px;">Book Free Audit →</a>
+      <a href="mailto:hello@vitalflow.ai" class="btn-secondary" style="font-size:16px;padding:16px 32px;">✉ Email us</a>
+    </div>
+    <p class="cta-trust">
+      <span>✓ No pitch, no pressure</span>
+      <span style="color:var(--cream3)">·</span>
+      <span>✓ Any timezone, video call</span>
+      <span style="color:var(--cream3)">·</span>
+      <span>✓ Useful even if you don't work with us</span>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <div class="logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <span class="logo-text">VitalFlow<span> AI</span></span>
+        </div>
+        <p class="footer-desc">AI-powered automation systems that help healthcare clinics worldwide eliminate no-shows, retain patients, recover lost revenue, and handle calls 24/7 — without adding staff.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="#services">Services</a>
+        <a href="#niches">Who we serve</a>
+        <a href="#global">Global reach</a>
+        <a href="#demo">Demo</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="https://calendly.com/vitalflowai" target="_blank">Book a free audit</a>
+        <a href="mailto:hello@vitalflow.ai">hello@vitalflow.ai</a>
+        <br>
+        <h4 style="margin-top:16px;">Serving globally</h4>
+        <span class="footer-email">🇮🇳 India · 🇺🇸 US · 🇬🇧 UK · 🇦🇺 AU · 🇦🇪 UAE</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 VitalFlow AI · vitalflow.ai · Built with n8n, Airtable & OpenAI.</p>
+      <p>Automation Systems For Service Businesses</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)
+});
+
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  m.style.display=m.style.display==='flex'?'none':'flex';
+}
+
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+
+/* ── CURRENCY TOGGLE ── */
+const prices = {
+  usd: { starter:'$299', mid:'$599', ent:'$1,199', sub:'One-time · invoiced in your currency' },
+  inr: { starter:'₹24,999', mid:'₹49,999', ent:'₹99,999', sub:'One-time setup fee' },
+  gbp: { starter:'£235', mid:'£470', ent:'£940', sub:'One-time · VAT may apply' },
+  aud: { starter:'A$455', mid:'A$912', ent:'A$1,824', sub:'One-time setup fee' },
+  aed: { starter:'AED 1,098', mid:'AED 2,200', ent:'AED 4,404', sub:'One-time setup fee' },
+};
+function setCurrency(c, btn) {
+  document.querySelectorAll('.ctoggle button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const p = prices[c];
+  document.getElementById('p-starter').textContent = p.starter;
+  document.getElementById('p-mid').textContent = p.mid;
+  document.getElementById('p-ent').textContent = p.ent;
+  const subs = document.querySelectorAll('[id$="-sub"]');
+  subs.forEach(s => s.textContent = p.sub);
+}
+</script>
+</body>
+</html>
