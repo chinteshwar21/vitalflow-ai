@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VitalFlow AI — AI Automation Systems for Service Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF7F2;
+  --cream2:#F2EDE4;
+  --cream3:#E8E0D4;
+  --brown:#2C1810;
+  --brown2:#5C3D2E;
+  --brown3:#8B6355;
+  --teal:#0D6E6E;
+  --teal2:#1A9090;
+  --teal3:#E0F4F4;
+  --coral:#E85D3F;
+  --coral2:#FFF0ED;
+  --gold:#C4872A;
+  --gold2:#FFF8EE;
+  --violet:#6B4FBB;
+  --violet2:#EEE8FF;
+  --text:#2C1810;
+  --text2:#5C3D2E;
+  --text3:#8B6355;
+  --border:rgba(44,24,16,0.10);
+  --border2:rgba(44,24,16,0.06);
+  --r:14px;
+  --r2:24px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:400;line-height:1.2;color:var(--text)}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;background:rgba(250,247,242,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border2);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(44,24,16,0.08)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:34px;height:34px;background:var(--teal);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-mark svg{width:20px;height:20px}
+.logo-text{font-family:'Fraunces',serif;font-size:20px;font-weight:500;color:var(--brown);letter-spacing:-0.3px}
+.logo-text span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:14px;color:var(--text2);font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+/* FIX #4 — Nav CTA: white bg looks wrong on cream nav; use teal with white text */
+.nav-cta{
+  background:var(--teal);
+  color:#fff !important;
+  padding:10px 22px;
+  border-radius:50px;
+  font-size:14px;
+  font-weight:500;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 2px 8px rgba(13,110,110,0.25);
+}
+.nav-cta:hover{background:var(--teal2);transform:translateY(-1px);box-shadow:0 4px 16px rgba(13,110,110,0.3)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-hamburger span{width:22px;height:2px;background:var(--brown);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--border);padding:20px 5%;z-index:99;flex-direction:column;gap:18px}
+.mobile-menu a{font-size:15px;color:var(--text2)}
+.mobile-menu .nav-cta{text-align:center}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.5}
+.hero-blob.b1{width:500px;height:500px;background:var(--teal3);top:-100px;right:-100px}
+.hero-blob.b2{width:380px;height:380px;background:#FFF0ED;bottom:-80px;left:-80px}
+.hero-blob.b3{width:250px;height:250px;background:var(--gold2);top:40%;right:30%}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:50px;padding:6px 14px 6px 10px;font-size:13px;color:var(--text2);margin-bottom:28px;animation:fadeUp .6s ease both}
+.hero-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+.hero h1{font-size:clamp(38px,5vw,58px);line-height:1.1;margin-bottom:24px;animation:fadeUp .6s .1s ease both}
+.hero h1 em{font-style:italic;color:var(--teal)}
+.hero-sub{font-size:17px;color:var(--text2);line-height:1.7;margin-bottom:36px;max-width:480px;animation:fadeUp .6s .2s ease both}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
+.btn-primary{background:var(--teal);color:#fff;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:500;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--teal2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,110,110,0.25)}
+.btn-secondary{background:#fff;color:var(--text);padding:14px 28px;border-radius:50px;font-size:15px;border:1px solid var(--border);transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px)}
+.hero-trust{margin-top:40px;display:flex;align-items:center;gap:16px;animation:fadeUp .6s .4s ease both}
+.hero-trust-text{font-size:13px;color:var(--text3)}
+.hero-trust-clinics{display:flex;gap:6px;flex-wrap:wrap}
+.clinic-pill{background:#fff;border:1px solid var(--border);border-radius:50px;padding:4px 12px;font-size:12px;color:var(--text2)}
+.hero-visual{animation:fadeUp .6s .2s ease both}
+.hero-card{background:#fff;border-radius:var(--r2);border:1px solid var(--border);overflow:hidden;box-shadow:0 20px 60px rgba(44,24,16,0.10)}
+.hero-card-header{background:var(--teal);padding:16px 20px;display:flex;align-items:center;gap:10px}
+.hero-card-header-dots{display:flex;gap:6px}
+.hero-card-header-dots span{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.4)}
+.hero-card-title{font-size:13px;color:rgba(255,255,255,0.9);font-family:'DM Sans',sans-serif;margin:0}
+.hero-card-body{padding:20px}
+.hcb-row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:var(--r);margin-bottom:8px;background:var(--cream)}
+.hcb-row:last-child{margin-bottom:0}
+.hcb-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+.hcb-icon.green{background:#E0F4F4;color:var(--teal)}
+.hcb-icon.orange{background:var(--coral2);color:var(--coral)}
+.hcb-icon.gold{background:var(--gold2);color:var(--gold)}
+.hcb-icon.violet{background:var(--violet2);color:var(--violet)}
+.hcb-label{font-size:13px;color:var(--text2);flex:1}
+.hcb-val{font-size:13px;font-weight:500;color:var(--text)}
+.hcb-badge{font-size:11px;background:#E0F4F4;color:var(--teal);padding:3px 8px;border-radius:50px}
+.hero-card-stat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;padding:16px;background:var(--cream2);border-radius:var(--r)}
+.stat-item{text-align:center}
+.stat-num{font-family:'Fraunces',serif;font-size:26px;color:var(--teal)}
+.stat-lbl{font-size:11px;color:var(--text3);margin-top:2px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SECTION COMMONS ── */
+section{padding:88px 5%}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-tag{display:inline-block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:14px;font-family:'DM Sans',sans-serif}
+.section-title{font-size:clamp(30px,4vw,44px);margin-bottom:16px;max-width:640px}
+.section-sub{font-size:16px;color:var(--text2);max-width:560px;line-height:1.75;margin-bottom:48px}
+
+/* ── PAIN ── */
+.pain{background:var(--brown);color:#fff}
+.pain h2{color:#fff}
+.pain .section-tag{color:#C4DED8}
+.pain .section-sub{color:rgba(255,255,255,0.6)}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.pain-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r2);padding:24px}
+.pain-card-icon{font-size:24px;margin-bottom:14px}
+.pain-card h3{font-size:17px;color:#fff;margin-bottom:8px;font-weight:400}
+.pain-card p{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7}
+.pain-stat{margin-top:48px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r2);padding:28px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.pain-stat-item{text-align:center}
+.pain-stat-num{font-family:'Fraunces',serif;font-size:38px;color:var(--teal2)}
+.pain-stat-label{font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px}
+
+/* ── SERVICES ── */
+.services{background:var(--cream)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.service-card{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:28px;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.service-card.voice-card::before{background:linear-gradient(90deg,var(--violet),var(--teal))}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(44,24,16,0.10)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:48px;height:48px;border-radius:14px;background:var(--teal3);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.service-icon.violet-icon{background:var(--violet2)}
+.service-card h3{font-size:19px;margin-bottom:10px;font-weight:400}
+.service-card p{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:16px}
+.service-card ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.service-card ul li{font-size:13px;color:var(--text2);display:flex;align-items:flex-start;gap:8px}
+.service-card ul li::before{content:'✓';color:var(--teal);font-weight:600;flex-shrink:0;margin-top:1px}
+.service-new-badge{display:inline-block;background:var(--violet);color:#fff;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:50px;margin-bottom:10px;font-family:'DM Sans',sans-serif}
+
+/* ── NICHES ── */
+.niches{background:var(--cream2)}
+.niches-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.niche-card{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:24px 20px;text-align:center;transition:all .25s;cursor:default}
+.niche-card:hover{border-color:var(--teal);background:var(--teal3);transform:translateY(-3px)}
+.niche-card:hover .niche-icon{background:var(--teal);color:#fff}
+.niche-icon{width:52px;height:52px;border-radius:50%;background:var(--cream2);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 14px}
+.niche-card h3{font-size:15px;font-weight:500;font-family:'DM Sans',sans-serif;color:var(--text);margin-bottom:4px}
+.niche-card p{font-size:12px;color:var(--text3)}
+
+/* ── GLOBAL REACH ── */
+.global{background:var(--brown);color:#fff;padding:88px 5%}
+.global .section-tag{color:#C4DED8}
+.global h2{color:#fff}
+.global .section-sub{color:rgba(255,255,255,0.6)}
+.globe-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:40px}
+.globe-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r2);padding:22px;transition:background .2s}
+.globe-card:hover{background:rgba(255,255,255,0.10)}
+.globe-flag{font-size:28px;margin-bottom:12px}
+.globe-region{font-size:16px;color:#fff;font-weight:500;margin-bottom:4px}
+.globe-detail{font-size:13px;color:rgba(255,255,255,0.5)}
+.currency-note{margin-top:36px;background:rgba(13,110,110,0.25);border:1px solid rgba(26,144,144,0.3);border-radius:var(--r2);padding:20px 28px;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.7}
+.currency-note strong{color:#fff}
+
+/* ── HOW IT WORKS ── */
+.howitworks{background:var(--cream)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;position:relative}
+.step{text-align:center;padding:0 12px}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--teal);color:#fff;font-family:'Fraunces',serif;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative}
+.step-num::after{content:'';position:absolute;width:70px;height:70px;border-radius:50%;border:1px dashed rgba(13,110,110,0.3);top:-7px;left:-7px}
+.step h3{font-size:17px;margin-bottom:8px;font-weight:400}
+.step p{font-size:14px;color:var(--text2);line-height:1.7}
+
+/* ── DEMO ── */
+.demo{background:var(--teal);color:#fff}
+.demo .section-tag{color:rgba(255,255,255,0.6)}
+.demo h2{color:#fff}
+.demo .section-sub{color:rgba(255,255,255,0.7)}
+.demo-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.demo-phone{perspective:800px}
+.demo-phone-frame{background:#fff;border-radius:24px;padding:20px;box-shadow:0 40px 80px rgba(0,0,0,0.3);transform:rotateY(-6deg) rotateX(3deg);transition:transform .4s}
+.demo-phone-frame:hover{transform:rotateY(0) rotateX(0)}
+.demo-chat{display:flex;flex-direction:column;gap:12px}
+.chat-msg{max-width:85%;padding:12px 16px;border-radius:18px;font-size:13px;line-height:1.6}
+.chat-msg.clinic{background:var(--cream);color:var(--text);border-bottom-left-radius:4px;align-self:flex-start}
+.chat-msg.patient{background:var(--teal);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.chat-msg.system{background:var(--cream2);color:var(--text2);font-size:12px;text-align:center;align-self:center;border-radius:10px;padding:8px 14px}
+.chat-label{font-size:10px;color:var(--text3);margin-bottom:4px;padding:0 4px}
+.chat-label.right{text-align:right}
+.demo-features{display:flex;flex-direction:column;gap:20px}
+.demo-feat{display:flex;gap:16px;align-items:flex-start}
+.demo-feat-icon{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.demo-feat h3{font-size:16px;color:#fff;font-weight:400;margin-bottom:6px}
+.demo-feat p{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65}
+.demo-cta-row{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--teal);padding:13px 26px;border-radius:50px;font-size:14px;font-weight:500;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-white:hover{background:var(--cream);transform:translateY(-2px)}
+.btn-ghost-white{background:transparent;color:#fff;padding:13px 26px;border-radius:50px;font-size:14px;border:1px solid rgba(255,255,255,0.3);transition:all .2s}
+.btn-ghost-white:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px)}
+
+/* ── RESULTS ── */
+.results{background:var(--cream2)}
+.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.result-card{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:28px;position:relative;overflow:hidden}
+.result-card::after{content:'"';position:absolute;bottom:-20px;right:20px;font-family:'Fraunces',serif;font-size:120px;color:var(--cream2);line-height:1}
+.result-num{font-family:'Fraunces',serif;font-size:44px;color:var(--teal);margin-bottom:4px}
+.result-unit{font-size:13px;color:var(--text3);margin-bottom:12px}
+.result-desc{font-size:14px;color:var(--text2);line-height:1.65;position:relative;z-index:1}
+
+/* ── PRICING — GLOBAL ── */
+.pricing{background:var(--cream)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;align-items:start}
+.price-card{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:32px;transition:transform .25s}
+.price-card:hover{transform:translateY(-4px)}
+.price-card.featured{border-color:var(--teal);box-shadow:0 20px 60px rgba(13,110,110,0.12)}
+.price-badge{font-size:11px;letter-spacing:1px;text-transform:uppercase;background:var(--teal);color:#fff;padding:4px 12px;border-radius:50px;display:inline-block;margin-bottom:16px;font-family:'DM Sans',sans-serif}
+.price-card h3{font-size:20px;margin-bottom:8px;font-weight:400}
+/* Global dual-currency display */
+.price-main{font-family:'Fraunces',serif;font-size:38px;color:var(--teal);line-height:1;margin-bottom:2px}
+.price-usd{font-size:15px;color:var(--teal2);font-family:'Fraunces',serif;margin-bottom:4px;font-weight:400}
+.price-note{font-size:13px;color:var(--text3);margin-bottom:24px}
+.price-card ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.price-card ul li{font-size:14px;color:var(--text2);display:flex;align-items:flex-start;gap:10px}
+.price-card ul li::before{content:'✓';color:var(--teal);font-weight:600;flex-shrink:0}
+.price-card ul li.cross::before{content:'✗';color:var(--cream3)}
+.price-card ul li.cross{color:var(--cream3)}
+.btn-price{width:100%;text-align:center;padding:13px;border-radius:50px;font-size:14px;font-weight:500;transition:all .2s;display:block;cursor:pointer}
+.btn-price.filled{background:var(--teal);color:#fff}
+.btn-price.filled:hover{background:var(--teal2)}
+.btn-price.outline{border:1px solid var(--border);color:var(--text2)}
+.btn-price.outline:hover{border-color:var(--teal);color:var(--teal)}
+.currency-toggle{display:flex;align-items:center;gap:12px;margin-bottom:36px;flex-wrap:wrap}
+.currency-toggle span{font-size:13px;color:var(--text3)}
+.ctoggle{display:flex;background:var(--cream2);border:1px solid var(--border);border-radius:50px;padding:4px;gap:4px}
+.ctoggle button{border:none;background:transparent;padding:6px 16px;border-radius:50px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--text2);transition:all .2s}
+.ctoggle button.active{background:#fff;color:var(--teal);font-weight:500;box-shadow:0 1px 4px rgba(44,24,16,0.1)}
+
+/* ── PROCESS ── */
+.process{background:var(--cream2)}
+.process-steps{display:flex;flex-direction:column;gap:0}
+.process-step{display:grid;grid-template-columns:60px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--border);position:relative}
+.process-step:last-child{border-bottom:none}
+.ps-num{font-family:'Fraunces',serif;font-size:36px;color:var(--cream3);font-style:italic;line-height:1;padding-top:4px}
+.ps-content h3{font-size:19px;margin-bottom:8px;font-weight:400}
+.ps-content p{font-size:15px;color:var(--text2);line-height:1.75}
+.ps-tag{display:inline-block;background:var(--teal3);color:var(--teal);font-size:12px;padding:4px 12px;border-radius:50px;margin-bottom:10px}
+
+/* ── FAQ ── */
+.faq{background:var(--cream)}
+.faq-list{display:flex;flex-direction:column;gap:0;max-width:720px}
+.faq-item{border-bottom:1px solid var(--border);padding:22px 0}
+.faq-q{font-size:16px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none;color:var(--text)}
+.faq-arrow{width:28px;height:28px;border-radius:50%;background:var(--cream2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s,background .2s;font-size:16px;color:var(--text2)}
+.faq-item.open .faq-arrow{transform:rotate(45deg);background:var(--teal);color:#fff}
+.faq-a{font-size:15px;color:var(--text2);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;padding-top:0}
+.faq-item.open .faq-a{max-height:300px;padding-top:14px}
+
+/* ── CTA BANNER ── */
+.cta-banner{background:var(--cream2);padding:88px 5%}
+.cta-inner{max-width:700px;margin:0 auto;text-align:center}
+.cta-inner h2{font-size:clamp(32px,4vw,48px);margin-bottom:16px}
+.cta-inner h2 em{color:var(--teal);font-style:italic}
+.cta-inner p{font-size:17px;color:var(--text2);margin-bottom:36px;line-height:1.75}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-trust{margin-top:28px;font-size:13px;color:var(--text3);display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* ── FOOTER ── */
+footer{background:var(--brown);padding:56px 5% 32px;color:rgba(255,255,255,0.55)}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-logo .logo-text{color:#fff}
+.footer-logo .logo-text span{color:var(--teal2)}
+.footer-desc{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.75;margin-top:12px;max-width:280px}
+.footer-col h4{font-size:13px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;font-family:'DM Sans',sans-serif;font-weight:500}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,0.55);margin-bottom:10px;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-email{font-size:14px;color:rgba(255,255,255,0.55)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:13px;color:rgba(255,255,255,0.3)}
+
+/* ── RESPONSIVE ── */
+
+/* Desktop (1025px+): two-column grid, content left / visual right — unchanged */
+@media(min-width:1025px){
+  .hero-inner{grid-template-columns:1fr 1fr}
+  .hero-content{order:1}
+  .hero-visual{order:2}
+}
+
+/* Tablet (768px–1024px): single column, content FIRST then visual */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-content{order:1}   /* badge → h1 → sub → cta → trust — always first */
+  .hero-visual{order:2}    /* dashboard card always below */
+  .hero h1{font-size:38px}
+  .demo-inner{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .demo-phone-frame{transform:none}
+}
+
+/* Mobile (320px–767px): same order, tighter spacing */
+@media(max-width:767px){
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .hero{padding:90px 5% 60px;min-height:auto}
+  .hero-inner{gap:32px}
+  .hero h1{font-size:32px}
+  .hero-sub{font-size:16px}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary{justify-content:center}
+  .hero-trust{flex-direction:column;align-items:flex-start;gap:10px}
+  .footer-top{grid-template-columns:1fr}
+  .pain-stat{flex-direction:column;text-align:center}
+  .cta-row{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <span class="logo-text">VitalFlow<span> AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#demo">Demo</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://calendly.com/chinteshwarpawar501/15min" target="_blank" class="nav-cta">Book Free Automation Audit →</a>
+    </div>
+    <div class="nav-hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#demo" onclick="toggleMenu()">Demo</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="https://calendly.com/chinteshwarpawar501/15min" target="_blank" class="nav-cta">Book Free Automation Audit →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-blob b1"></div>
+    <div class="hero-blob b2"></div>
+    <div class="hero-blob b3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        AI-Powered · Built for Healthcare · AI Automation Systems for Service Businesses
+      </div>
+      <h1>Your clinic deserves to run <em>without</em> the chaos</h1>
+      <p class="hero-sub">VitalFlow AI builds intelligent automation systems that help reduce missed appointments, follow up with patients automatically, and improve the customer experience — so you focus on care, not admin.</p>
+      <div class="hero-actions">
+        <a href="https://calendly.com/chinteshwarpawar501/15min" target="_blank" class="btn-primary">Book Free Automation Audit →</a>
+        <a href="#demo" class="btn-secondary">▶️ See it in action</a>
+      </div>
+      <div class="hero-trust">
+        <span class="hero-trust-text">Built for:</span>
+        <div class="hero-trust-clinics">
+          <span class="clinic-pill">🦷 Dental</span>
+          <span class="clinic-pill">🏃 Physio</span>
+          <span class="clinic-pill">✨ Skin</span>
+          <span class="clinic-pill">👁️ Eye</span>
+          <span class="clinic-pill">🦴 Ortho</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="hero-card-header-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <p class="hero-card-title">VitalFlow Dashboard — Live</p>
+        </div>
+        <div class="hero-card-body">
+          <div class="hcb-row">
+            <div class="hcb-icon green">✓</div>
+            <span class="hcb-label">Reminders sent today</span>
+            <span class="hcb-val">24</span>
+            <span class="hcb-badge">+12%</span>
+          </div>
+          <div class="hcb-row">
+            <div class="hcb-icon orange">↩</div>
+            <span class="hcb-label">No-shows rescued</span>
+            <span class="hcb-val">8</span>
+            <span class="hcb-badge">This week</span>
+          </div>
+          <div class="hcb-row">
+            <div class="hcb-icon gold">⭐</div>
+            <span class="hcb-label">Reviews collected</span>
+            <span class="hcb-val">5</span>
+            <span class="hcb-badge">Auto</span>
+          </div>
+          <div class="hcb-row">
+            <div class="hcb-icon violet">🎙️</div>
+            <span class="hcb-label">Voice agent calls handled</span>
+            <span class="hcb-val">13</span>
+            <span class="hcb-badge">24/7</span>
+          </div>
+          <div class="hero-card-stat">
+            <div class="stat-item">
+              <div class="stat-num">↑</div>
+              <div class="stat-lbl">Improved follow-up consistency</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">↓</div>
+              <div class="stat-lbl">Potential reduction in missed appointments</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="section-inner">
+    <span class="section-tag">The Problem</span>
+    <h2 class="section-title">Every clinic is losing money it doesn't know about</h2>
+    <p class="section-sub">Manual processes, forgotten follow-ups, and missed appointments quietly cost service businesses time and customers every single week.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-card-icon">📵</div>
+        <h3>No-shows pile up</h3>
+        <p>Patients forget. Life happens. Without automated reminders, 20–30% of appointments vanish — taking your revenue with them.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card-icon">📋</div>
+        <h3>Staff drown in admin</h3>
+        <p>Receptionists spend hours every day manually calling patients, chasing documents, and doing tasks that should never need a human.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card-icon">😶</div>
+        <h3>Patients go silent</h3>
+        <p>40% of patients who finish treatment never return — not because they're unhappy, but because no one reached back out at the right time.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card-icon">📞</div>
+        <h3>Calls go unanswered</h3>
+        <p>After-hours patient calls and enquiries go to voicemail and are forgotten — costing you bookings every single night and weekend.</p>
+      </div>
+    </div>
+    <div class="pain-stat">
+      <div class="pain-stat-item">
+        <div class="pain-stat-num">High</div>
+        <div class="pain-stat-label">Typical missed-appointment rate without automation</div>
+      </div>
+      <div class="pain-stat-item">
+        <div class="pain-stat-num">Hours</div>
+        <div class="pain-stat-label">Staff time lost weekly to manual reminders</div>
+      </div>
+      <div class="pain-stat-item">
+        <div class="pain-stat-num">Many</div>
+        <div class="pain-stat-label">Customers who never return without follow-up</div>
+      </div>
+      <div class="pain-stat-item">
+        <div class="pain-stat-num">Better</div>
+        <div class="pain-stat-label" style="font-size:13px;color:rgba(255,255,255,0.5)">Potential outcomes with automation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <span class="section-tag">What We Build</span>
+    <h2 class="section-title">Five systems. One complete patient journey.</h2>
+    <p class="section-sub">Every automation we build targets a specific bottleneck — saving staff time and improving the customer experience.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">💬</div>
+        <h3>Smart Reminder System</h3>
+        <p>Automated WhatsApp and SMS reminders sent exactly 24 hours and 2 hours before every appointment. Patients confirm or reschedule with one tap.</p>
+        <ul>
+          <li>Personalised per patient and treatment type</li>
+          <li>Responses tracked automatically — no manual logging</li>
+          <li>Zero manual calls for your receptionist</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔄</div>
+        <h3>No-Show Rescue Engine</h3>
+        <p>When a patient cancels or ghosts, an AI-crafted rebooking message goes out within 30 minutes — with 3 available slots to choose from.</p>
+        <ul>
+          <li>Recovers 40–60% of cancellations automatically</li>
+          <li>Warm, human-sounding messages via AI</li>
+          <li>Tracks recovery rate in your weekly dashboard</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔔</div>
+        <h3>Patient Recall Automation</h3>
+        <p>90 days after a patient's last visit, they receive a personalised message inviting them back — before they book with a competitor.</p>
+        <ul>
+          <li>Works 24/7 without any manual input</li>
+          <li>Targets lapsed patients you've forgotten about</li>
+          <li>Links directly to your booking system</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⭐</div>
+        <h3>Google Review Automation</h3>
+        <p>Post-treatment review requests sent at the perfect moment — when patient satisfaction is highest and the experience is fresh.</p>
+        <ul>
+          <li>Helps generate more reviews through better timing</li>
+          <li>Timed for day-7 follow-up message</li>
+          <li>Direct link to your Google Business profile</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Weekly Performance Dashboard</h3>
+        <p>Every Monday morning, you receive an automated report showing exactly what the system did — and what revenue it recovered — the previous week.</p>
+        <ul>
+          <li>No-show rate, confirmation rate, reviews, recalls</li>
+          <li>Sent automatically via email every Monday</li>
+          <li>Simple to read — no technical knowledge needed</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>WhatsApp AI Chatbot</h3>
+        <p>A 24/7 AI assistant that handles new patient enquiries from your clinic's WhatsApp — qualifying leads, answering FAQs, and booking appointments automatically.</p>
+        <ul>
+          <li>Trained on your clinic's services and pricing</li>
+          <li>Hands off to staff when human touch is needed</li>
+          <li>Captures leads even at 2am</li>
+        </ul>
+      </div>
+      <!-- NEW: AI Voice Agent -->
+      <div class="service-card voice-card">
+        <div class="service-new-badge">New</div>
+        <div class="service-icon violet-icon">🎙️</div>
+        <h3>AI Voice Agent</h3>
+        <p>A conversational AI that answers your clinic's phone calls 24/7 — booking appointments, handling FAQs, and routing urgent cases to staff — in your clinic's voice and language.</p>
+        <ul>
+          <li>Handles inbound calls after-hours & on weekends</li>
+          <li>Books directly into your calendar — no hold time</li>
+          <li>Speaks naturally in English, Hindi, Arabic & more</li>
+          <li>Escalates emergencies to on-call staff instantly</li>
+          <li>Call summaries logged automatically to your dashboard</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NICHES -->
+<section class="niches" id="niches">
+  <div class="section-inner">
+    <span class="section-tag">Who We Serve</span>
+    <h2 class="section-title">Built specifically for healthcare clinics</h2>
+    <p class="section-sub">Every workflow is adapted to your clinic's specific patient journey, terminology, and scheduling patterns.</p>
+    <div class="niches-grid">
+      <div class="niche-card">
+        <div class="niche-icon">🦷</div>
+        <h3>Dental Clinics</h3>
+        <p>Checkup recalls, treatment follow-ups</p>
+      </div>
+      <div class="niche-card">
+        <div class="niche-icon">🏃</div>
+        <h3>Physiotherapy</h3>
+        <p>Session reminders, progress check-ins</p>
+      </div>
+      <div class="niche-card">
+        <div class="niche-icon">✨</div>
+        <h3>Skin Clinics</h3>
+        <p>Treatment cycles, seasonal campaigns</p>
+      </div>
+      <div class="niche-card">
+        <div class="niche-icon">👁️</div>
+        <h3>Eye Clinics</h3>
+        <p>Annual checkup recalls, prescription alerts</p>
+      </div>
+      <div class="niche-card">
+        <div class="niche-icon">🦴</div>
+        <h3>Orthopedic</h3>
+        <p>Rehab follow-ups, appointment scheduling</p>
+      </div>
+      <div class="niche-card">
+        <div class="niche-icon">🏥</div>
+        <h3>General Practice</h3>
+        <p>Patient retention, preventive care recall</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="howitworks" id="process">
+  <div class="section-inner">
+    <span class="section-tag">How It Works</span>
+    <h2 class="section-title">From audit to live in 7 days</h2>
+    <p class="section-sub">No lengthy onboarding. No disruption to your clinic. We fit around your schedule — wherever you are in the world.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Free clinic audit</h3>
+        <p>We spend 15 minutes on a video call understanding your setup, no-show rate, and biggest revenue leaks.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Custom system design</h3>
+        <p>We map out exactly which automations to build, tailored to your clinic type, size, region, and existing tools.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Build &amp; test</h3>
+        <p>We build your complete automation system, connected to your messaging channels and booking setup — and test every workflow thoroughly.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Go live in 7 days</h3>
+        <p>Your system launches. We monitor the first 2 weeks closely before handing you the dashboard. Timezone-friendly handover guaranteed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo" id="demo">
+  <div class="section-inner">
+    <div class="demo-inner">
+      <div>
+        <span class="section-tag">Live Demo</span>
+        <h2 class="section-title" style="color:#fff;max-width:500px">See exactly what your patients experience</h2>
+        <p class="section-sub">This is the VitalFlow Smart Clinic OS in action — the same WhatsApp flow a patient receives automatically when they have an upcoming appointment.</p>
+        <div class="demo-features">
+          <div class="demo-feat">
+            <div class="demo-feat-icon">⏰</div>
+            <div>
+              <h3>Sent 24 hours before</h3>
+              <p>Patient receives a warm, personalised reminder. No staff involvement. They confirm with one tap.</p>
+            </div>
+          </div>
+          <div class="demo-feat">
+            <div class="demo-feat-icon">↩️</div>
+            <div>
+              <h3>AI rescues cancellations</h3>
+              <p>If they cancel, our system sends a gentle rebooking message within 30 minutes with 3 available slots.</p>
+            </div>
+          </div>
+          <div class="demo-feat">
+            <div class="demo-feat-icon">🎙️</div>
+            <div>
+              <h3>AI Voice answers after hours</h3>
+              <p>Missed a call at 9pm? The AI Voice Agent picks up, books the appointment, and logs it to your dashboard.</p>
+            </div>
+          </div>
+          <div class="demo-feat">
+            <div class="demo-feat-icon">📈</div>
+            <div>
+              <h3>You see the results weekly</h3>
+              <p>Every Monday: how many confirmed, how many rescued, how much revenue recovered. Automatically emailed to you.</p>
+            </div>
+          </div>
+        </div>
+        <div class="demo-cta-row">
+          <a href="https://calendly.com/chinteshwarpawar501/15min" target="_blank" class="btn-white">Book a live walkthrough →</a>
+          <a href="#pricing" class="btn-ghost-white">See pricing</a>
+        </div>
+      </div>
+      <div class="demo-phone">
+        <div class="demo-phone-frame">
+          <div style="background:#128C7E;padding:14px 16px;border-radius:12px 12px 0 0;display:flex;align-items:center;gap:10px;margin:-20px -20px 16px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;">🦷</div>
+            <div>
+              <div style="font-size:14px;font-weight:500;color:#fff;">Smile Dental Clinic</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.7);">WhatsApp Business · Online</div>
+            </div>
+          </div>
+          <div class="demo-chat">
+            <div class="chat-msg system">Thursday, 9:00 AM — Automated</div>
+            <div>
+              <div class="chat-label">VitalFlow AI</div>
+              <div class="chat-msg clinic">Hi Priya! 👋 This is a reminder from <b>Smile Dental Clinic</b>.<br><br>Your appointment for a <b>dental cleaning</b> with Dr. Sharma is tomorrow, <b>Friday at 11:00 AM</b>.<br><br>Please reply:<br>✅ CONFIRM — to confirm your slot<br>❌ CANCEL — if you can't make it<br><br>📍 123 MG Road · 📞 98765 43210</div>
+            </div>
+            <div>
+              <div class="chat-label right">Priya</div>
+              <div class="chat-msg patient">✅ CONFIRM</div>
+            </div>
+            <div class="chat-msg system">Appointment confirmed · Dashboard updated automatically</div>
+            <div>
+              <div class="chat-label">VitalFlow AI · 2 hours before</div>
+              <div class="chat-msg clinic">Hi Priya! Just a quick reminder — your appointment at Smile Dental is in <b>2 hours</b> (11:00 AM today). 🦷<br><br>See you soon!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <div class="section-inner">
+    <span class="section-tag">Potential Outcomes</span>
+    <h2 class="section-title">What the right automation can unlock</h2>
+    <p class="section-sub">These are example outcomes service businesses commonly aim for when they adopt the right automation systems. Actual results vary by business, workflow, and customer base.</p>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-num">↓</div>
+        <div class="result-unit">Potential reduction in missed appointments</div>
+        <div class="result-desc">Automated reminders and rebooking flows aim to reduce no-shows and last-minute cancellations.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">⏱</div>
+        <div class="result-unit">Time savings for your team</div>
+        <div class="result-desc">Receptionists and staff spend less time on manual reminders, follow-ups, and admin chasing.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">↻</div>
+        <div class="result-unit">Improved follow-up consistency</div>
+        <div class="result-desc">Every customer is followed up at the right moment — nothing slips through the cracks.</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">★</div>
+        <div class="result-unit">Better customer experience</div>
+        <div class="result-desc">Faster responses, clearer communication, and a more professional touch at every step of the journey.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="results"><div class="section-inner">
+<span class="section-tag">Featured Project</span>
+<h2 class="section-title">Patient Reminder Automation System</h2>
+<p class="section-sub">Industry: Healthcare Clinics • Problem: Missed appointments • Solution: Automated reminders and follow-ups • Outcome: Better patient engagement and reduced manual work.</p>
+</div></section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <span class="section-tag">Custom Pricing</span>
+    <h2 class="section-title">Custom Pricing</h2>
+    <p class="section-sub">Every business has unique workflows, goals, and automation requirements. We provide tailored solutions based on your needs.</p>
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:48px 36px;text-align:center;max-width:680px;margin:32px auto 0;box-shadow:0 8px 28px rgba(44,24,16,0.06);">
+      <div style="font-family:'Fraunces',serif;font-size:44px;color:var(--teal);line-height:1.1;margin-bottom:8px;">Starting from ₹15,000+</div>
+      <p style="font-size:16px;color:var(--text2);max-width:480px;margin:0 auto 28px;">Book a free Automation Audit to receive a personalized recommendation and quote.</p>
+      <a href="https://calendly.com/chinteshwarpawar501/15min" target="_blank" class="btn-primary" style="font-size:15px;">Book Free Automation Audit →</a>
+    </div>
+
+    <!-- FOUNDING CLIENT PROGRAM -->
+    <div style="margin-top:44px;position:relative;background:linear-gradient(135deg,#2C1810 0%,#1a0d07 100%);border-radius:var(--r2);padding:44px 40px;color:#fff;overflow:hidden;box-shadow:0 24px 60px rgba(44,24,16,0.25);">
+      <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(196,135,42,0.25),transparent 70%);"></div>
+      <div style="position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;" class="founding-grid">
+        <div>
+          <span style="display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:14px;font-family:'DM Sans',sans-serif;">Exclusive · Limited Spots</span>
+          <h3 style="font-family:'Fraunces',serif;font-size:34px;color:#fff;line-height:1.15;margin-bottom:14px;">Founding Client Program</h3>
+          <p style="color:rgba(255,255,255,0.72);font-size:15px;max-width:440px;margin-bottom:24px;">We are currently onboarding a limited number of early clients to build long-term partnerships at preferred terms.</p>
+          <div style="font-size:13px;color:var(--gold);letter-spacing:1px;text-transform:uppercase;font-family:'DM Sans',sans-serif;">Limited to the next 3 clients</div>
+        </div>
+        <div>
+          <ul style="list-style:none;padding:0;margin:0 0 24px;display:grid;gap:12px;">
+            <li style="display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(255,255,255,0.92);"><span style="color:var(--gold);font-weight:500;">✓</span> Preferred pricing</li>
+            <li style="display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(255,255,255,0.92);"><span style="color:var(--gold);font-weight:500;">✓</span> Direct founder support</li>
+            <li style="display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(255,255,255,0.92);"><span style="color:var(--gold);font-weight:500;">✓</span> Faster implementation</li>
+            <li style="display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(255,255,255,0.92);"><span style="color:var(--gold);font-weight:500;">✓</span> Priority feature requests</li>
+          </ul>
+          <a href="https://calendly.com/chinteshwarpawar501/15min" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#2C1810;padding:14px 26px;border-radius:50px;font-size:14px;font-weight:500;font-family:'DM Sans',sans-serif;transition:transform .2s,box-shadow .2s;">Book Free Automation Audit →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS DETAIL -->
+<section class="process">
+  <div class="section-inner">
+    <span class="section-tag">Our Process</span>
+    <h2 class="section-title">What happens after you book a call</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="ps-num">01</div>
+        <div class="ps-content">
+          <div class="ps-tag">Day 0 — Free, 15–30 minutes</div>
+          <h3>Revenue Leak Audit</h3>
+          <p>We meet on a video call (any timezone). We look at your current appointment volume, no-show rate, and reminder process. You walk away with a clear picture of what's leaking revenue — even if you don't work with us.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">02</div>
+        <div class="ps-content">
+          <div class="ps-tag">Day 1 — After confirmation</div>
+          <h3>Custom system blueprint</h3>
+          <p>We send you a detailed document showing every automation we'll build, what it does, and what outcome to expect. You approve it before we write a single line of workflow code.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">03</div>
+        <div class="ps-content">
+          <div class="ps-tag">Days 2–6</div>
+          <h3>Build, configure, and test</h3>
+          <p>We build your system, connect it to your phone line, messaging channels, and scheduling tools, configure all AI prompts in your clinic's language and tone, and run full end-to-end tests before going near a real patient.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">04</div>
+        <div class="ps-content">
+          <div class="ps-tag">Day 7 — Live</div>
+          <h3>Go live and handover</h3>
+          <p>Your system goes live. We walk your team through your performance dashboard on a video call (scheduled for your timezone), answer every question, and monitor the first two weeks — at no extra charge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="process"><div class="section-inner">
+<span class="section-tag">Founder</span>
+<h2 class="section-title">Meet The Founder</h2>
+<p class="section-sub">Hi, I'm Chinteshwar. I build automation systems that help businesses eliminate repetitive work, improve efficiency, and scale operations. After building healthcare software and AI-powered workflows, I started VitalFlow AI to help service businesses save time and increase revenue through automation.</p>
+<a href="https://calendly.com/chinteshwarpawar501/15min" target="_blank" class="btn-primary">Book Free Automation Audit →</a>
+</div></section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-inner">
+    <span class="section-tag">FAQ</span>
+    <h2 class="section-title">Questions we get asked a lot</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do we need any special software or subscriptions?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">No new software to install or learn on your end. Everything runs on our infrastructure. You don't pay extra platform subscriptions — everything is included in your setup fee. We connect to the tools you already use wherever possible.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Will this work with our existing booking system?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">Yes, in almost all cases. We connect to most common booking and practice management systems, or we can set up a simple data entry process that works alongside your current workflow. We'll confirm compatibility during the free audit call before you commit to anything.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How long does setup really take?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">7 working days from the time you confirm and pay the deposit. That's the typical timeline for the Smart Clinic OS. Enterprise setups with multiple locations or custom integrations may take 10–14 days. We've never missed a go-live deadline.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What languages does the AI Voice Agent support?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">The AI Voice Agent currently supports English, Hindi, Arabic, and can be configured for other languages on request. It speaks in a natural, conversational tone — trained specifically on healthcare clinic call scenarios. It can handle mixed-language conversations (e.g. Hinglish) and will always escalate to a human staff member when the situation requires it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What kind of results can I expect?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">Every clinic is different. During your free audit we'll identify the specific areas where automation can create the biggest impact for your practice — whether that's reducing no-shows, recovering lapsed patients, saving staff time, or generating more reviews. We'll give you a clear, honest picture of what's realistic before you spend anything.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What currency will I be invoiced in?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">We invoice in your local currency — INR, USD, GBP, AUD, AED, or any major currency. Prices displayed on this site are USD equivalents. The final invoice will be in your local currency at the current exchange rate, with no additional conversion fees added by us.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What happens to our patient data?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">All patient data is stored securely and remains under your control at all times. We don't share patient information with third parties. We can work within HIPAA-aware, GDPR-compliant, and local data protection frameworks depending on your country. We're happy to sign an NDA or data processing agreement.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do we need technical knowledge to use this?
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-a">None at all. Your receptionist uses a simple interface — add a new appointment, and the automations handle everything else. You get a weekly email report every Monday. That's it. No complex dashboards, no workflows to manage. The system runs silently in the background.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="cta-banner"><div class="cta-inner">
+<h2>Free Automation Audit</h2>
+<p>Discover bottlenecks, revenue leaks, time-consuming tasks, and automation opportunities.</p>
+<a href="https://calendly.com/chinteshwarpawar501/15min" target="_blank" class="btn-primary">Book Free Automation Audit →</a>
+</div></section>
+
+
+<!-- CONTACT FORM -->
+<section class="contact" id="contact" style="background:var(--cream2);padding:80px 5%;">
+  <div class="section-inner" style="max-width:720px;margin:0 auto;">
+    <div style="text-align:center;">
+      <span class="section-tag">Get in touch</span>
+      <h2 class="section-title">Tell us about your business</h2>
+      <p class="section-sub">Share a few details about your workflow and what you'd like to automate — we'll get back within one business day.</p>
+    </div>
+    <form id="contactForm" action="https://formspree.io/f/xvznonzv" method="POST" style="background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:36px;margin-top:32px;display:grid;gap:18px;box-shadow:0 6px 24px rgba(44,24,16,0.05);">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="contact-row">
+        <label style="display:grid;gap:6px;font-size:13px;color:var(--text2);font-weight:500;">
+          Name
+          <input required name="name" type="text" maxlength="100" style="padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:15px;background:var(--cream);color:var(--text);">
+        </label>
+        <label style="display:grid;gap:6px;font-size:13px;color:var(--text2);font-weight:500;">
+          Email
+          <input required name="email" type="email" maxlength="255" style="padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:15px;background:var(--cream);color:var(--text);">
+        </label>
+      </div>
+      <label style="display:grid;gap:6px;font-size:13px;color:var(--text2);font-weight:500;">
+        Business / Clinic
+        <input name="business" type="text" maxlength="150" style="padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:15px;background:var(--cream);color:var(--text);">
+      </label>
+      <label style="display:grid;gap:6px;font-size:13px;color:var(--text2);font-weight:500;">
+        How can we help?
+        <textarea required name="message" rows="5" maxlength="1500" style="padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:15px;background:var(--cream);color:var(--text);resize:vertical;"></textarea>
+      </label>
+      <button type="submit" id="contactSubmit" class="btn-primary" style="justify-self:start;border:none;cursor:pointer;font-family:inherit;">Send message →</button>
+      <div id="contactStatus" style="font-size:14px;display:none;padding:12px 14px;border-radius:10px;"></div>
+    </form>
+    <p style="text-align:center;margin-top:20px;font-size:14px;color:var(--text2);">Or email us directly: <a href="mailto:chinteshwarpawar501@gmail.com" style="color:var(--teal);font-weight:500;">chinteshwarpawar501@gmail.com</a></p>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <h2>Find out how much your clinic is <em>leaving behind</em></h2>
+    <p>Book a free 15-minute Revenue Leak Audit. We'll show you exactly what's costing you, what automation would recover, and what the numbers look like — before you spend a single penny.</p>
+    <div class="cta-row">
+      <a href="https://calendly.com/chinteshwarpawar501/15min" target="_blank" class="btn-primary" style="font-size:16px;padding:16px 32px;">Book Free Automation Audit →</a>
+      <a href="mailto:chinteshwarpawar501@gmail.com" class="btn-secondary" style="font-size:16px;padding:16px 32px;">✉ Email us</a>
+    </div>
+    <p class="cta-trust">
+      <span>✓ No pitch, no pressure</span>
+      <span style="color:var(--cream3)">·</span>
+      <span>✓ Any timezone, video call</span>
+      <span style="color:var(--cream3)">·</span>
+      <span>✓ Useful even if you don't work with us</span>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <div class="logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <span class="logo-text">VitalFlow<span> AI</span></span>
+        </div>
+        <p class="footer-desc">AI automation systems for service businesses — helping clinics, agencies, and operators reduce missed appointments, save staff time, and improve the customer experience.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="#services">Services</a>
+        <a href="#niches">Who we serve</a>
+        <a href="#contact">Contact</a>
+        <a href="#demo">Demo</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <a href="https://calendly.com/chinteshwarpawar501/15min" target="_blank">Book a free audit</a>
+        <a href="mailto:chinteshwarpawar501@gmail.com">chinteshwarpawar501@gmail.com</a>
+        <a href="https://wa.me/919340323651" target="_blank">WhatsApp: +91 93403 23651</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 VitalFlow AI · vitalflow.ai</p>
+      <p>Automation Systems For Service Businesses</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)
+});
+
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  m.style.display=m.style.display==='flex'?'none':'flex';
+}
+
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+
+</script>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/919340323651?text=Hi%20VitalFlow%20AI%2C%20I%27d%20like%20to%20learn%20more%20about%20automation%20for%20my%20business."
+   target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+   style="position:fixed;bottom:22px;right:22px;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,0.45);z-index:200;transition:transform .2s;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="30" height="30" fill="#fff">
+    <path d="M19.11 17.21c-.29-.15-1.7-.84-1.97-.94-.27-.1-.46-.15-.66.15-.19.29-.75.94-.92 1.13-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.49.1-.19.05-.36-.02-.51-.07-.15-.66-1.59-.9-2.18-.24-.57-.48-.5-.66-.51-.17-.01-.36-.01-.56-.01s-.51.07-.78.36c-.27.29-1.03 1.01-1.03 2.46s1.05 2.85 1.2 3.05c.15.19 2.07 3.16 5.02 4.43.7.3 1.25.48 1.68.62.7.22 1.34.19 1.84.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.25.17-1.36-.07-.12-.27-.19-.56-.34zM16.02 5.33c-5.89 0-10.67 4.78-10.67 10.67 0 1.88.49 3.72 1.43 5.34L5 27l5.85-1.53a10.6 10.6 0 0 0 5.16 1.32h.01c5.89 0 10.67-4.78 10.67-10.67S21.91 5.33 16.02 5.33zm0 19.55h-.01a8.84 8.84 0 0 1-4.5-1.23l-.32-.19-3.47.91.92-3.38-.21-.34a8.85 8.85 0 0 1-1.35-4.65c0-4.89 3.98-8.87 8.88-8.87 2.37 0 4.6.92 6.27 2.6a8.79 8.79 0 0 1 2.6 6.28c0 4.89-3.98 8.87-8.81 8.87z"/>
+  </svg>
+</a>
+
+/* mobile overrides already handled in main responsive block above */
+
+<script>
+/* Contact form submit handler — success/error states */
+(function(){
+  var form = document.getElementById('contactForm');
+  if(!form) return;
+  var status = document.getElementById('contactStatus');
+  var btn = document.getElementById('contactSubmit');
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    status.style.display = 'block';
+    status.style.background = 'var(--teal3)';
+    status.style.color = 'var(--teal)';
+    status.textContent = 'Sending…';
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+    try{
+      var res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if(res.ok){
+        status.style.background = '#E8F5E9';
+        status.style.color = '#1B5E20';
+        status.textContent = '✓ Thanks! Your message has been sent. We will reply within one business day.';
+        form.reset();
+      } else {
+        var data = await res.json().catch(()=>({}));
+        throw new Error((data.errors && data.errors[0] && data.errors[0].message) || 'Something went wrong.');
+      }
+    } catch(err){
+      status.style.background = '#FDECEA';
+      status.style.color = '#B71C1C';
+      status.textContent = '✕ ' + (err.message || 'Could not send right now. Please email us at chinteshwarpawar501@gmail.com.');
+    } finally {
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
